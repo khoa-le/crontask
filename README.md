@@ -1,4 +1,4 @@
-# Guartz
+# CronTask
 It's a simple job scheduler with HTTP interface and MySQL as Database.
 
 ## Setting
