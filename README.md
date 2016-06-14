@@ -18,7 +18,7 @@ go build
 ```
 This will create a binary called guartz, create the a .env file on the root of the project with this content:
 ```
-MYSQL_DB=root:password@tcp(127.0.0.1:3306)/guartz?charset=utf8&parseTime=True
+MYSQL_DB=root:password@tcp(127.0.0.1:3306)/crontask?charset=utf8&parseTime=True
 GIN_MODE=prod
 PORT=8081
 ```
@@ -28,7 +28,7 @@ export GUARTZ_MODE=dev
 ```
 Now you can run the server:
 ```
-./guartz
+./crontask
 ```
 This will run the server where you will be able to schedule the command's execution in the operative system.
 
