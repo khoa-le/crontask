@@ -3,7 +3,7 @@ package models
 import (
 	"time"
 
-	"github.com/infiniteloopsco/crontask/utils"
+	"github.com/khoa-le/crontask/utils"
 )
 
 //ExecutionPageSize defaults

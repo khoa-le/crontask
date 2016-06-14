@@ -5,9 +5,9 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/infiniteloopsco/crontask/utils"
+	"github.com/khoa-le/crontask/utils"
 
-	"github.com/infiniteloopsco/crontask/models"
+	"github.com/khoa-le/crontask/models"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 )
