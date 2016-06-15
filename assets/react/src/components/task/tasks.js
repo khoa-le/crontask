@@ -57,6 +57,7 @@ export default class Tasks extends Component{
                         <thead>
                         <tr>
                             <th  width="1%"></th>
+                            <th>Name</th>
                             <th>Command</th>
                             <th>Status</th>
                             <th className="text-right mail-date">Create</th>

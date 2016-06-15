@@ -17,7 +17,10 @@ export default class TaskItem extends Component {
                 <td></td>
                 <td >
                     <a href="#" data-message-id={this.props.data.id} onClick={this.props.handleViewDetail.bind(this,this.props.data)}>
-                        { this.props.data.command }</a>
+                        { this.props.data.name }</a>
+                </td>
+                <td >
+                        { this.props.data.command }
                 </td>
                 <td >
                     { (this.props.data.periodicity == 'stop') ? <span className="label">{this.props.data.periodicity}</span> : <span className="badge badge-primary">{this.props.data.periodicity}</span>}

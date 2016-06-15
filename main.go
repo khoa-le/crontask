@@ -6,11 +6,11 @@ import (
 	"os"
 	"time"
 
-	"github.com/infiniteloopsco/guartz/utils"
+	"github.com/khoa-le/crontask/utils"
 
 	"github.com/gin-gonic/gin"
-	"github.com/infiniteloopsco/guartz/endpoint"
-	"github.com/infiniteloopsco/guartz/models"
+	"github.com/khoa-le/crontask/endpoint"
+	"github.com/khoa-le/crontask/models"
 
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/joho/godotenv"
@@ -27,7 +27,6 @@ func main() {
 	router.Static("/assets", "./assets")
 		
 	router.LoadHTMLGlob("templates/*")
-    //router.LoadHTMLFiles("templates/template1.html", "templates/template2.html")
     router.GET("/", func(c *gin.Context) {
         c.HTML(http.StatusOK, "index.tmpl", gin.H{
             "title": "Main website",

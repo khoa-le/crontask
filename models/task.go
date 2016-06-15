@@ -16,6 +16,7 @@ import (
 //Task executed recurrently
 type Task struct {
 	ID          string    `sql:"type:varchar(100)" gorm:"primary_key" json:"id"`
+	Name        string    `json:"name" validate:"required"`
 	Periodicity string    `json:"periodicity" validate:"required"`
 	CronID      int       `json:"-"`
 	Command     string    `json:"command" validate:"required"`

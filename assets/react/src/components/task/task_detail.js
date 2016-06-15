@@ -18,7 +18,7 @@ export default class TaskDetail extends Component {
         }
         this.onSaveTask = this.onSaveTask.bind(this);
         this.onDeleteTask = this.onDeleteTask.bind(this);
-        this.onStopTask = this.onStopTask.bind(this);
+        this.onExecuteTask = this.onExecuteTask.bind(this);
 
     }
 
@@ -33,6 +33,7 @@ export default class TaskDetail extends Component {
         e.preventDefault();
         let data={
             id:this.state.task.id,
+            name:$("input[name=name]").val(),
             command:$("input[name=command]").val(),
             periodicity:$("input[name=periodicity]").val()
         };
@@ -72,8 +73,23 @@ export default class TaskDetail extends Component {
             }
         )
     }
-    onStopTask(e){
+    onExecuteTask(e){
+        e.preventDefault();
+        $.ajax(
+            {
+                url: 'tasks/'+this.state.task.id+'/executions',
+                dataType: 'json',
+                method: 'POST',
+                success: function (data) {
+                    console.log(data);
+                    this.props.handleBack()
 
+                }.bind(this),
+                error: function (xhr, status, err) {
+                    console.error(this.props.actionUrl.sendMessage, status, err.toString());
+                }.bind(this)
+            }
+        )
     }
 
     render() {
@@ -89,6 +105,7 @@ export default class TaskDetail extends Component {
                             data={this.state.task}
                             handleDelete={this.onDeleteTask}
                             handleBack={this.props.handleBack}
+                            handleExecute={this.onExecuteTask}
                             />
                     </div>
                 </div>
@@ -100,6 +117,12 @@ export default class TaskDetail extends Component {
 
                                 <div className="col-sm-10">
                                     <input type="text" className="form-control" defaultValue={this.state.task.id} />
+                                </div>
+                            </div>
+                            <div className="form-group">
+                                <label className="col-sm-2 control-label">Name:</label>
+                                <div className="col-sm-10">
+                                    <input name="name" type="text" className="form-control" defaultValue={this.state.task.name} />
                                 </div>
                             </div>
                             <div className="form-group">

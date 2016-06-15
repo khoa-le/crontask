@@ -44,6 +44,7 @@ func TaskCreate(c *gin.Context) {
 		if task.ID != "" && taskExistent.ID != "" {
 			taskExistent.Periodicity = task.Periodicity
 			taskExistent.Command = task.Command
+			taskExistent.Name = task.Name
 			err = txn.Save(&taskExistent).Error
 		} else {
 			err = txn.Create(&task).Error
